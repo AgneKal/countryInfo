@@ -19,11 +19,15 @@ fetch(`https://restcountries.com/v3.1/all`)
     })
     .then((data) => {
         console.log(data);
-        const names = data.map((n) => n.name.common).sort();
-        names.forEach((n) => {
+        data.sort(function (a, b) {
+            let textA = a.name.common;
+            let textB = b.name.common;
+            return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+        });
+        data.forEach((n) => {
             const opt = document.createElement('option');
-            opt.textContent = n;
-            opt.value = n;
+            opt.textContent = n.name.common;
+            opt.value = n.cca2;
             search.appendChild(opt);
         })
         return data;
@@ -31,12 +35,12 @@ fetch(`https://restcountries.com/v3.1/all`)
 
 search.onchange = () => {
     const selectedCountry = search.value;
-    fetch(`https://restcountries.com/v3.1/name/${selectedCountry}`)
+    fetch(`https://restcountries.com/v3.1/alpha?codes=${selectedCountry}`)
         .then((response) => {
             return response.json();
         })
         .then((data) => {
-            console.log(data[0].name);
+            console.log(data);
             population.textContent = data[0].population || '-';
             area.textContent = data[0].area || '-';
             flag.src = data[0].flags.png || '-';
