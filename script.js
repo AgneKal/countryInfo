@@ -48,8 +48,6 @@ search.onchange = () => {
             countryName.textContent = data[0].name.common;
             language.textContent = data[0].languages ? Object.values(data[0].languages).join(', ') : '-';
             currency.textContent = data[0].currencies ? Object.values(data[0].currencies).map((c) => c.name).join(', ') : '-';
-            //Shortcutas
-            // currency.textContent = data[0].currencies ? Object.values(data[0].currencies).map((c) => c.name).join(', ');
             const borders = data[0].borders;
             return borders;
         })
@@ -84,6 +82,5 @@ search.onchange = () => {
     flag.src = '';
     blazon.src = '';
     countryName.textContent = '';
-
 };
 
