@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country Info</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+    <link rel="manifest" href="./favicon/site.webmanifest">
+    <link rel="mask-icon" href="./favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="./css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="holder search-holder">
+            <select id="search">
+                <option value="" disabled selected>Pasirinkite valstybę</option>
+                <option value="">Lietuva</option>
+                <option value="">Latvija</option>
+            </select>
+            <button class="btn" id="btnSearch"> Rasti valstybę </button>
+        </div>
+        <div class="holder country-info">
+            <div class="title" id="country">Valstybė: <span></span></div>
+            <div class="info">
+                <div class="all-statistic">
+                    <h1 class="header">Statistika</h1>
+                    <ul class="statistic-list">
+                        <li class="statistic"><span class="forBcgColor">Populiacija: </span><span class="numbers" id="population"></span></li>
+                        <li class="statistic"><span class="forBcgColor">Plotas: </span><span class="numbers" id="area"></span></li>
+                        <li class="statistic"><span class="forBcgColor">Valiuta: </span><span class="numbers" id="currency"></span></li>
+                        <li class="statistic"><span class="forBcgColor">Kalba: </span><span class="numbers" id="language"></span></li>
+                    </ul>
+                    <button class="btn" id="btnBorder">Rodyti kaimynus</button>
+                </div>
+                <div class="symbols">
+                    <div class="flag-holder">
+                        <h1 class="header">Vėliava</h1>
+                        <div class="flagDiv"><img src="https://www.worldometers.info/img/flags/lh-flag.gif" alt="" id="flag"></div>
+                    </div>
+                    <div class="blazon-holder">
+                        <h1 class="header">Herbas</h1>
+                        <div class="blazonDiv"><img src="https://www.worldometers.info/img/flags/lh-flag.gif" alt="" id="blazon"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="holder neighbours">
+            <h1 class="title">Kaimynai</h1>
+            <ul>
+                <li class="neighbour"></li>
+            </ul>
+
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>
