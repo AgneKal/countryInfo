@@ -36,14 +36,16 @@ search.onchange = () => {
             return response.json();
         })
         .then((data) => {
-            console.log(data);
-            population.textContent = data[0].population;
-            area.textContent = data[0].area;
-            currency.textContent = Object.values(data[0].currencies).map((c) => c.name).join(', ');
-            language.textContent = Object.values(data[0].languages).join(', ');
-            flag.src = data[0].flags.png;
-            blazon.src = data[0].coatOfArms.png;
+            console.log(data[0].name);
+            population.textContent = data[0].population || '-';
+            area.textContent = data[0].area || '-';
+            flag.src = data[0].flags.png || '-';
+            blazon.src = data[0].coatOfArms.png || '-';
             countryName.textContent = data[0].name.common;
+            language.textContent = data[0].languages ? Object.values(data[0].languages).join(', ') : '-';
+            currency.textContent = data[0].currencies ? Object.values(data[0].currencies).map((c) => c.name).join(', ') : '-';
+            //Shortcutas
+            // currency.textContent = data[0].currencies ? Object.values(data[0].currencies).map((c) => c.name).join(', ');
             const borders = data[0].borders;
             return borders;
         })
@@ -71,5 +73,13 @@ search.onchange = () => {
         })
     search.value = '';
     neighboursList.innerHTML = '';
+    population.textContent = '';
+    area.textContent = '';
+    currency.textContent = '';
+    language.textContent = '';
+    flag.src = '';
+    blazon.src = '';
+    countryName.textContent = '';
+
 };
 
