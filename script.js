@@ -16,7 +16,6 @@ fetch(`https://restcountries.com/v3.1/all`)
         return response.json();
     })
     .then((data) => {
-        console.log(data);
         data.sort(function (a, b) {
             let textA = a.name.common;
             let textB = b.name.common;
@@ -38,7 +37,6 @@ search.onchange = () => {
             return response.json();
         })
         .then((data) => {
-            console.log(data);
             population.textContent = data[0].population || '-';
             area.textContent = data[0].area || '-';
             flag.src = data[0].flags.png || '-';
@@ -62,7 +60,6 @@ search.onchange = () => {
                     return response.json();
                 })
                 .then((data) => {
-                    console.log(data);
                     data.forEach((c) => {
                         const li = document.createElement('li');
                         li.textContent = `${c.name.common} (${c.population}).`;
