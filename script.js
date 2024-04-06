@@ -11,8 +11,6 @@ const blazon = document.getElementById('blazon');
 
 const neighboursList = document.getElementById('neighbours-list');
 
-let countries;
-
 fetch(`https://restcountries.com/v3.1/all`)
     .then((response) => {
         return response.json();
