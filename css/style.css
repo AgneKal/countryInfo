@@ -180,3 +180,39 @@ select:focus {
 li {
     list-style-type:none;
 }
+
+@media (max-width: 700px){  
+    .info {
+        flex-direction: column;
+        }
+    
+    .all-statistic {
+        width: 100%;
+    }
+
+    .symbols {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .holder {
+        width: 100%;
+    }
+
+    #search {
+        width: 80%;
+        font-size: 20px;
+    }
+
+    .title {
+        font-size: 30px;
+    }
+
+    .header {
+        font-size: 24px;
+    }
+
+    .forBcgColor {
+        font-size: 20px;
+    }
+}
