@@ -152,7 +152,7 @@ select:focus {
     background-color: #f0f0c9;
 }
 
-.blazonDiv {
+.coatOfArmsDiv {
     padding: 10px;
     text-align: center;
     background-color: #f0f0c9;
@@ -162,7 +162,7 @@ select:focus {
     width: 40%;
 }
 
-#blazon {
+#coatOfArms {
     width: 40%;
 }
 

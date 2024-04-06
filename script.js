@@ -7,7 +7,7 @@ const currency = document.getElementById('currency');
 const language = document.getElementById('language');
 
 const flag = document.getElementById('flag');
-const blazon = document.getElementById('blazon');
+const coatOfArms = document.getElementById('coatOfArms');
 
 const neighboursList = document.getElementById('neighbours-list');
 
@@ -40,7 +40,7 @@ search.onchange = () => {
             population.textContent = data[0].population || '-';
             area.textContent = data[0].area || '-';
             flag.src = data[0].flags.png || '-';
-            blazon.src = data[0].coatOfArms.png || '-';
+            coatOfArms.src = data[0].coatOfArms.png || '-';
             countryName.textContent = data[0].name.common;
             language.textContent = data[0].languages ? Object.values(data[0].languages).join(', ') : '-';
             currency.textContent = data[0].currencies ? Object.values(data[0].currencies).map((c) => c.name).join(', ') : '-';
@@ -75,7 +75,7 @@ search.onchange = () => {
     currency.textContent = '';
     language.textContent = '';
     flag.src = '';
-    blazon.src = '';
+    coatOfArms.src = '';
     countryName.textContent = '';
 };
 
