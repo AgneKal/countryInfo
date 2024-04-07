@@ -11,6 +11,8 @@ const coatOfArms = document.getElementById('coatOfArms');
 
 const neighboursList = document.getElementById('neighbours-list');
 
+const loading = document.getElementById("loading");
+
 fetch(`https://restcountries.com/v3.1/all`)
     .then((response) => {
         return response.json();
@@ -31,6 +33,7 @@ fetch(`https://restcountries.com/v3.1/all`)
     });
 
 search.onchange = () => {
+    loading.style.display = "block";
     const selectedCountry = search.value;
     fetch(`https://restcountries.com/v3.1/alpha?codes=${selectedCountry}`)
         .then((response) => {
@@ -53,6 +56,7 @@ search.onchange = () => {
                 li.textContent = 'Kaimynų neturi.';
                 li.className = 'neighbour';
                 neighboursList.appendChild(li);
+                loading.style.display = "none";
                 return;
             }
             fetch(`https://restcountries.com/v3.1/alpha?codes=${borders.join(',')}`)
@@ -66,6 +70,7 @@ search.onchange = () => {
                         li.className = 'neighbour';
                         neighboursList.appendChild(li);
                     })
+                    loading.style.display = "none";
                 })
         })
     search.value = '';
