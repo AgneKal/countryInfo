@@ -15,24 +15,6 @@ body {
     background-color: #f0f0c9; 
 }
 
-.overlay {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    z-index: 1000;
-    top: 0%;
-    left: 0px;
-    background-color: rgba(255, 255, 255, 0.9);
-    display: none;
-}
-
-.row {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 30px;
-}
 
 .container {
     width: 100%;
@@ -237,5 +219,43 @@ li {
 
     .row {
         font-size: 20px;
+    }
+}
+
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    top: 0%;
+    left: 0px;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: none;
+}
+
+.row {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+
+.loader {
+    border: 10px solid #f0f0c9;
+    border-top: 10px solid #124e78;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
     }
 }

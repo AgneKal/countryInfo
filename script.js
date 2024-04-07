@@ -40,8 +40,8 @@ search.onchange = () => {
             return response.json();
         })
         .then((data) => {
-            population.textContent = data[0].population || '-';
-            area.textContent = data[0].area || '-';
+            population.textContent = data[0].population.toLocaleString() || '-';
+            area.textContent = data[0].area.toLocaleString() || '-';
             flag.src = data[0].flags.png || '-';
             coatOfArms.src = data[0].coatOfArms.png || '-';
             countryName.textContent = data[0].name.common;
@@ -66,7 +66,7 @@ search.onchange = () => {
                 .then((data) => {
                     data.forEach((c) => {
                         const li = document.createElement('li');
-                        li.textContent = `${c.name.common} (${c.population}).`;
+                        li.textContent = `${c.name.common} (${c.population.toLocaleString()}).`;
                         li.className = 'neighbour';
                         neighboursList.appendChild(li);
                     })
