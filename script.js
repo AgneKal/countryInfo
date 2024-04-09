@@ -13,6 +13,16 @@ const neighboursList = document.getElementById('neighbours-list');
 
 const loading = document.getElementById("loading");
 
+const loadingImages = () => {
+    if (flag.complete && coatOfArms.complete) {
+        loading.style.display = "none";
+    } else {
+        loading.style.display = "block";
+        setTimeout(loadingImages, 100);
+    }
+}
+
+
 fetch(`https://restcountries.com/v3.1/all`)
     .then((response) => {
         return response.json();
@@ -70,7 +80,7 @@ search.onchange = () => {
                         li.className = 'neighbour';
                         neighboursList.appendChild(li);
                     })
-                    loading.style.display = "none";
+                    setTimeout(loadingImages, 100);
                 })
         })
     search.value = '';
