@@ -63,24 +63,6 @@ select:focus {
     text-align: center;
 }
 
-.btn {
-    background-color: #124e78;
-    border: 1px solid #124e78;
-    padding: 8px 16px;
-    border-radius: 8px;
-    color: #f0f0c9;
-    margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 20px;
-    cursor: pointer;
-}
-
-.btn:hover {
-    background-color: #f0f0c9;
-    color:#124e78
-}
-
 .info {
     width: 100%;
     display: flex;
@@ -101,6 +83,14 @@ select:focus {
     font-weight: 600;
     color: #124e78;
     padding-bottom: 10px;
+}
+
+#alert {
+    color: rgb(154, 14, 14);
+}
+
+#country-name {
+    color: #124e78;
 }
 
 .header {

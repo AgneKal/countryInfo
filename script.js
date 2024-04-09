@@ -1,6 +1,7 @@
 const search = document.getElementById('search');
 const option = document.getElementsByClassName('option')
 const countryName = document.getElementById('country-name');
+const alertText = document.getElementById('alert');
 const population = document.getElementById('population');
 const area = document.getElementById('area');
 const currency = document.getElementById('currency');
@@ -21,7 +22,6 @@ const loadingImages = () => {
         setTimeout(loadingImages, 100);
     }
 }
-
 
 fetch(`https://restcountries.com/v3.1/all`)
     .then((response) => {
@@ -50,6 +50,12 @@ search.onchange = () => {
             return response.json();
         })
         .then((data) => {
+            console.log(data);
+            if (data.status === 404) {
+                let e = new Error('Negalime pasiekti informacijos apie šalį.');
+                e.name = 'nerastaSalis';
+                throw e;
+            }
             population.textContent = data[0].population.toLocaleString() || '-';
             area.textContent = data[0].area.toLocaleString() || '-';
             flag.src = data[0].flags.png || '-';
@@ -74,6 +80,12 @@ search.onchange = () => {
                     return response.json();
                 })
                 .then((data) => {
+                    console.log(data);
+                    if (data.status === 400) {
+                        let e = new Error('Negalime pasiekti informacijos apie kaimynus.');
+                        e.name = 'nerastiKaimynai';
+                        throw e;
+                    }
                     data.forEach((c) => {
                         const li = document.createElement('li');
                         li.textContent = `${c.name.common} (${c.population.toLocaleString()}).`;
@@ -82,6 +94,25 @@ search.onchange = () => {
                     })
                     setTimeout(loadingImages, 100);
                 })
+                .catch((e) => {
+                    loading.style.display = "none";
+                    if (e.name == 'nerastiKaimynai') {
+                        const li = document.createElement('li');
+                        li.textContent = `Įvyko klaida ieškant kaimynų.`;
+                        li.className = 'neighbour';
+                        neighboursList.appendChild(li);
+                    }
+                    alertText.style.display = 'block';
+                })
+        })
+        .catch((e) => {
+            loading.style.display = "none";
+            if (e.name == "Not") {
+                alertText.innerHTML = `Klaida, serveris neveikia arba nėra interneto.`;
+            } else if (e.name == 'nerastaSalis') {
+                alertText.innerHTML = `Klaida ieškant šalies.`;
+            }
+            alertText.style.display = 'block';
         })
     search.value = '';
     neighboursList.innerHTML = '';
@@ -93,4 +124,3 @@ search.onchange = () => {
     coatOfArms.src = '';
     countryName.textContent = '';
 };
-
