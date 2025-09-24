@@ -23,7 +23,7 @@ const loadingImages = () => {
     }
 }
 
-fetch(`https://restcountries.com/v3.1/all?fields=name`)
+fetch(`https://restcountries.com/v3.1/all?fields=name,cca2`)
     .then((response) => {
         return response.json();
     })
@@ -45,7 +45,8 @@ fetch(`https://restcountries.com/v3.1/all?fields=name`)
 search.onchange = () => {
     loading.style.display = "block";
     const selectedCountry = search.value;
-    fetch(`https://restcountries.com/v3.1/alpha?codes=${selectedCountry}`)
+    console.log(selectedCountry);
+    fetch(`https://restcountries.com/v3.1/alpha/${selectedCountry}`)
         .then((response) => {
             return response.json();
         })
