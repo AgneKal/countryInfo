@@ -23,7 +23,7 @@ const loadingImages = () => {
     }
 }
 
-fetch(`https://restcountries.com/v3.1/all`)
+fetch(`https://restcountries.com/v3.1/all?fields=name`)
     .then((response) => {
         return response.json();
     })
